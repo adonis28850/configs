@@ -1,0 +1,10 @@
+Installed packages: 
+	jedi-vim
+	nerdtree
+	pathogen
+	tagbar
+	vim-colors-solarized
+	vim-flake8
+	vim-nerdtree-tabs
+
+
