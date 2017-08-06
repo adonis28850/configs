@@ -1,5 +1,3 @@
-set rtp+=/home/[USER]/.vim,/home/[USER]/.vim/bundle/jedi-vim,/home/[USER]/.vim/bundle/nerdtree,/home/[USER]/.vim/bundle/pathogen,/home/[USER]/.vim/bundle/tagbar,/home/[USER]/.vim/bundle/vim-colors-solarized,/home/[USER]/.vim/bundle/vim-flake8,/home/[USER]/.vim/bundle/vim-nerdtree-tabs,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,/home/[USER]/.vim/bundle/jedi-vim/after,/home/[USER]/.vim/after
-
 " enable syntax highlighting
 syntax enable
 
@@ -24,16 +22,48 @@ set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
-execute pathogen#infect()
-call pathogen#helptags()
+" show especial characters
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 
+""""""""" Vim-Plug
+" Specify a directory for plugins (vim-plug)
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Solarized colors
+Plug 'https://github.com/icymind/NeoSolarized.git'
+
+" NerdTree
+Plug 'https://github.com/scrooloose/nerdtree.git'
+" To keep NerdTree in all tabs
+Plug 'https://github.com/jistr/vim-nerdtree-tabs.git'
+
+" Deoplete-Jedi
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://github.com/davidhalter/jedi.git'
+Plug 'zchee/deoplete-jedi'
+
+" Python Linter
+Plug 'https://github.com/nvie/vim-flake8.git'
+
+" Initialize plugin system
+call plug#end()
+
+""""""""" End of Vim-Plug
+
+" solarized colors
+set termguicolors
+set background=dark
+colorscheme NeoSolarized
+
+" NerdTree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" solarized colors
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
+" Deoplete-Jedi
+let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_refresh_always=0
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#auto_completion_start_length = 0
