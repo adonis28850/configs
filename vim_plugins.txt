@@ -1,10 +1,8 @@
 Installed packages: 
-	jedi-vim
-	nerdtree
-	pathogen
-	tagbar
-	vim-colors-solarized
-	vim-flake8
-	vim-nerdtree-tabs
-
-
+deoplete-jedi
+deoplete.nvim
+jedi
+NeoSolarized
+nerdtree
+vim-flake8
+vim-nerdtree-tabs
