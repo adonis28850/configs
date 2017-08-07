@@ -26,6 +26,9 @@ set showmatch
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 
+" ignore case when searching
+set ignorecase
+
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
 call plug#begin('~/.local/share/nvim/plugged')
@@ -45,6 +48,10 @@ Plug 'zchee/deoplete-jedi'
 
 " Python Linter
 Plug 'https://github.com/nvie/vim-flake8.git'
+
+" Vim-Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -67,3 +74,13 @@ let g:deoplete#enable_at_startup=1
 let g:deoplete#enable_refresh_always=0
 let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#auto_completion_start_length = 0
+
+" Airline
+let g:airline_theme='solarized'
+
+" This allows buffers to be hidden if you've modified a buffer.
+set hidden
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
