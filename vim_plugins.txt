@@ -1,8 +1,0 @@
-Installed packages: 
-deoplete-jedi
-deoplete.nvim
-jedi
-NeoSolarized
-nerdtree
-vim-flake8
-vim-nerdtree-tabs
