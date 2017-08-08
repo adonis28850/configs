@@ -1,3 +1,6 @@
+" map leader key
+let mapleader = ","
+
 " enable syntax highlighting
 syntax enable
 
