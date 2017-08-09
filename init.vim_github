@@ -1,6 +1,9 @@
 " map leader key
 let mapleader = ","
 
+" enter the current millenium
+set nocompatible
+
 " enable syntax highlighting
 syntax enable
 
@@ -31,6 +34,13 @@ set listchars=tab:>-,trail:~,extends:>,precedes:<
 
 " ignore case when searching
 set ignorecase
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
 
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
