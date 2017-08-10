@@ -80,7 +80,6 @@ colorscheme NeoSolarized
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Deoplete-Jedi
 let g:deoplete#enable_at_startup=1
