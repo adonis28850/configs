@@ -42,6 +42,10 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
+" Set splits below and on the right by default
+set splitbelow
+set splitright
+
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
 call plug#begin('~/.local/share/nvim/plugged')
