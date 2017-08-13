@@ -42,10 +42,6 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-" Set splits below and on the right by default
-set splitbelow
-set splitright
-
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
 call plug#begin('~/.local/share/nvim/plugged')
@@ -55,8 +51,6 @@ Plug 'https://github.com/icymind/NeoSolarized.git'
 
 " NerdTree
 Plug 'https://github.com/scrooloose/nerdtree.git'
-" To keep NerdTree in all tabs
-Plug 'https://github.com/jistr/vim-nerdtree-tabs.git'
 
 " Deoplete-Jedi
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -81,9 +75,8 @@ set background=dark
 colorscheme NeoSolarized
 
 " NerdTree
-autocmd vimenter * NERDTree
-let NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_console_startup=1
+" toggle nerdtree
+nnoremap <F2> :NERDTreeToggle<cr>
 
 " Deoplete-Jedi
 let g:deoplete#enable_at_startup=1
