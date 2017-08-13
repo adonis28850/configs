@@ -75,6 +75,7 @@ set background=dark
 colorscheme NeoSolarized
 
 " NerdTree
+autocmd vimenter * NERDTree
 " toggle nerdtree
 nnoremap <F2> :NERDTreeToggle<cr>
 
