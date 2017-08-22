@@ -46,6 +46,9 @@ set wildmenu
 set splitbelow
 set splitright
 
+" Spell check - toggle with <leader>s
+nmap <silent> <leader>s :set spell!<CR>
+
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
 call plug#begin('~/.local/share/nvim/plugged')
