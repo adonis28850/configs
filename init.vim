@@ -71,6 +71,9 @@ Plug 'https://github.com/nvie/vim-flake8.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 " Initialize plugin system
 call plug#end()
 
