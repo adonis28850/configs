@@ -104,3 +104,12 @@ set hidden
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" VimWiki
+filetype plugin onG
+hi VimwikiHeader1 guifg=#FF8000
+hi VimwikiHeader2 guifg=#FF3333
+hi VimwikiHeader3 guifg=#3333FF
+hi VimwikiHeader4 guifg=#B266FF
+hi VimwikiHeader5 guifg=#00CC66
+hi VimwikiHeader6 guifg=#FFFF00
