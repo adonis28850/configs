@@ -106,7 +106,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " VimWiki
-filetype plugin onG
+filetype plugin on
 hi VimwikiHeader1 guifg=#FF8000
 hi VimwikiHeader2 guifg=#FF3333
 hi VimwikiHeader3 guifg=#3333FF
