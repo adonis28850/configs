@@ -1,20 +1,25 @@
 " map leader key
-let mapleader = ","
+let mapleader = " "
 
 " enter the current millenium
 set nocompatible
 
 " enable syntax highlighting
 syntax enable
+filetype on
 
 " show line numbers
 set number
+set relativenumber
 
 " set tabs to have 4 spaces
 set ts=4
 
 " indent when moving to the next line while writing code
 set autoindent
+
+"allow auto-indenting depending on file type
+filetype plugin indent on
 
 " expand tabs into spaces
 set expandtab
@@ -47,7 +52,11 @@ set splitbelow
 set splitright
 
 " Spell check - toggle with <leader>s
+set spell spelllang=en_gb
 nmap <silent> <leader>s :set spell!<CR>
+
+" Allows the use of the mouse in the editor
+set mouse=a
 
 """"""""" Vim-Plug
 " Specify a directory for plugins (vim-plug)
@@ -59,20 +68,37 @@ Plug 'https://github.com/icymind/NeoSolarized.git'
 " NerdTree
 Plug 'https://github.com/scrooloose/nerdtree.git'
 
-" Deoplete-Jedi
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'https://github.com/davidhalter/jedi.git'
-Plug 'zchee/deoplete-jedi'
-
 " Python Linter
-Plug 'https://github.com/nvie/vim-flake8.git'
+Plug 'mfussenegger/nvim-lint'
 
 " Vim-Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Vimwiki
-Plug 'vimwiki/vimwiki'
+" Auto Pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Dev Icons
+Plug 'ryanoasis/vim-devicons'
+
+" Nerd Commenter
+Plug 'preservim/nerdcommenter'
+
+" Fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Fuzzy Search
+Plug 'ggVGc/vim-fuzzysearch'
+
+" TreeSitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+" Vim Tmux integrated navigation
+Plug 'christoomey/vim-tmux-navigator'
+
+" NeoVimis
+Plug '/home/antonio/LocalGit/neovimis'
 
 " Initialize plugin system
 call plug#end()
@@ -84,16 +110,10 @@ set termguicolors
 set background=dark
 colorscheme NeoSolarized
 
-" NerdTree
-autocmd vimenter * NERDTree
+" Show hidden files
+let NERDTreeShowHidden=1
 " toggle nerdtree
-nnoremap <F2> :NERDTreeToggle<cr>
-
-" Deoplete-Jedi
-let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_refresh_always=0
-let g:deoplete#file#enable_buffer_path=1
-let g:deoplete#auto_completion_start_length = 0
+nnoremap <leader>e :NERDTreeToggle<cr>
 
 " Airline
 let g:airline_theme='solarized'
@@ -105,11 +125,43 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" VimWiki
-filetype plugin on
-hi VimwikiHeader1 guifg=#FF8000
-hi VimwikiHeader2 guifg=#FF3333
-hi VimwikiHeader3 guifg=#3333FF
-hi VimwikiHeader4 guifg=#B266FF
-hi VimwikiHeader5 guifg=#00CC66
-hi VimwikiHeader6 guifg=#FFFF00
+" Markdown
+set conceallevel=2
+let g:markdown_folding = 1
+au FileType markdown setlocal foldlevel=99 " Don't fold anything when opening
+
+" nvim-lint
+lua <<EOF
+require('lint').linters_by_ft = {
+  python = {'flake8'}
+}
+EOF
+" Autocmd to trigger linting
+au BufWritePost <buffer> lua require('lint').try_lint()
+
+" Disable search highlight with ESC key
+map <esc> :noh <CR>
+
+" TreeSitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+  },
+
+    indent = {
+    enable = true
+  }
+}
+EOF
+
+" Vim-FuzzySearch
+" Replace in file using last search
+nnoremap <leader>r :%s///g<left><left>
+" Overwrite default search
+nnoremap / :FuzzySearch<CR>
