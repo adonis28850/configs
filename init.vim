@@ -165,3 +165,6 @@ EOF
 nnoremap <leader>r :%s///g<left><left>
 " Overwrite default search
 nnoremap / :FuzzySearch<CR>
+
+" Open URLs under cursor with `gx`
+nmap gx :!open <c-r><c-a><CR>
