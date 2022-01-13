@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/XXXX/.oh-my-zsh"
+export ZSH="/home/antonio/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -116,3 +116,11 @@ export COLORTERM=truecolor
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Navi shell widget
+eval "$(navi widget zsh)"
+
+# Fuzzy search. Show hidden files.
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
