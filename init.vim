@@ -178,17 +178,3 @@ nnoremap / :FuzzySearch<CR>
 
 " Open URLs under cursor with `gx`
 nmap gx :!open <c-r><c-a><CR>
-
-" NeoVimis
-let g:vimis#GitLabAPIToken = 'glpat-v3xBJbt_tDndtuYcDPGz'
-let g:vimis#GitLabURL = 'https://gitlab.dionach.com'
-let g:vimis#TemplatesPath = '/home/antonio/NeoVimisTemplates'
-let g:vimis#MarkdownTemplatesPath = '/home/antonio/LocalGit/neovimis/Markdown_Report_Templates'
-let g:vimis#Name = 'Antonio Sánchez'
-let g:vimis#Role = 'Senior Consultant'
-
-nmap <leader>np :NeoVimisTogglePluralization<CR>
-nmap <leader>ne :NeoVimisEditTemplateBlock<CR>
-nmap <leader>ni :NeoVimisInsertImage<CR>
-nmap <leader>nu :NeoVimisInsertImage<CR>
-nmap <leader>ns :NeoVimisShowCommonIssues<CR>
