@@ -91,6 +91,10 @@ Plug 'junegunn/fzf.vim'
 " Fuzzy Search
 Plug 'ggVGc/vim-fuzzysearch'
 
+" LSP
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'williamboman/nvim-lsp-installer'
+
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
@@ -100,10 +104,16 @@ Plug 'christoomey/vim-tmux-navigator'
 " NeoVimis
 Plug '/home/antonio/LocalGit/neovimis'
 
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " Initialize plugin system
 call plug#end()
 
 """"""""" End of Vim-Plug
+
+" Path to python interpreter with pynvim installed
+" let g:python3_host_prog=expand("/usr/bin/python")
 
 " solarized colors
 set termguicolors
@@ -168,3 +178,17 @@ nnoremap / :FuzzySearch<CR>
 
 " Open URLs under cursor with `gx`
 nmap gx :!open <c-r><c-a><CR>
+
+" NeoVimis
+let g:vimis#GitLabAPIToken = 'glpat-v3xBJbt_tDndtuYcDPGz'
+let g:vimis#GitLabURL = 'https://gitlab.dionach.com'
+let g:vimis#TemplatesPath = '/home/antonio/NeoVimisTemplates'
+let g:vimis#MarkdownTemplatesPath = '/home/antonio/LocalGit/neovimis/Markdown_Report_Templates'
+let g:vimis#Name = 'Antonio Sánchez'
+let g:vimis#Role = 'Senior Consultant'
+
+nmap <leader>np :NeoVimisTogglePluralization<CR>
+nmap <leader>ne :NeoVimisEditTemplateBlock<CR>
+nmap <leader>ni :NeoVimisInsertImage<CR>
+nmap <leader>nu :NeoVimisInsertImage<CR>
+nmap <leader>ns :NeoVimisShowCommonIssues<CR>
