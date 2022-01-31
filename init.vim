@@ -150,7 +150,7 @@ EOF
 au BufWritePost <buffer> lua require('lint').try_lint()
 
 " Disable search highlight with ESC key
-map <esc> :noh <CR>
+nnoremap <silent> <esc> <esc>:noh<CR>
 
 " TreeSitter
 lua <<EOF
